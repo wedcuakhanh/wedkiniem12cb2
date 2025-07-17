@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>🎬 Video Kỷ Niệm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffe0f5, #ffd6eb);
+      font-family: 'Quicksand', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 15px;
+      background: rgba(255, 240, 250, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 6px rgba(255, 105, 180, 0.3);
+    }
+
+    .navbar a {
+      padding: 10px 18px;
+      background: linear-gradient(45deg, #ff6ec4, #7873f5);
+      color: white;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+    }
+ /* Logo góc trái */
+    .logo {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+      z-index: 10;
+    }
+
+    /* Thanh menu */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 15px;
+      background: rgba(255, 240, 250, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 6px rgba(255, 105, 180, 0.3);
+    }
+
+    .navbar a:hover {
+      transform: scale(1.1);
+      background: linear-gradient(45deg, #ffd700, #ff69b4);
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      color: #d63384;
+      font-size: 2rem;
+      text-shadow: 1px 1px 2px #fff;
+    }
+
+    .videos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .video-box {
+      background: #fff0f8;
+      border-radius: 20px;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+      text-align: center;
+      width: 320px;
+    }
+
+    .video-box iframe {
+      width: 100%;
+      height: 180px;
+      border-radius: 12px;
+      border: none;
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: #ff1493;
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+
+    .effect {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: fly 12s linear infinite;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    @keyframes fly {
+      0% { transform: translateY(100vh) translateX(0); }
+      100% { transform: translateY(-120vh) translateX(50px); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.85rem;
+      color: #b4005a;
+      background-color: #fff0f8;
+      margin-top: 30px;
+      font-style: italic;
+    }
+    
+  </style>
+</head>
+<body>
+<!-- Logo -->
+  <img src="./logo.jpg" alt="Logo" class="logo">
+  <!-- Menu -->
+  <div class="navbar">
+    <a href="trangchu.html">🏠 Trang chủ</a>
+    <a href="anh-dim.html">📷 Ảnh dìm</a>
+    <a href="video.html">🎬 Video</a>
+    <a href="tro-choi.html">🎮 Trò chơi</a>
+    <a href="danhgia.html">⭐ đánh giá </a>
+  </div>
+
+  <header>🎬 Video Kỷ Niệm Tuổi Học Trò</header>
+
+  <div class="videos">
+    <!-- Video 1 - TikTok -->
+    <div class="video-box">
+      <iframe src="./videokiniem1.mp4" allowfullscreen></iframe>
+      <div class="caption">Buổi Học Toán Cuối Cùng Nè 🥹</div>
+    </div>
+
+    <!-- Video 2 - YouTube -->
+    <div class="video-box">
+      <iframe src="./videokiniem2.mp4" allowfullscreen></iframe>
+      <div class="caption">Mới Tập Tành Vào Trường Nè 🫶</div>
+    </div>
+
+    <!-- Video 3 - TikTok embed (dùng iframe hoặc chèn link hướng dẫn thêm) -->
+    <div class="video-box">
+      <iframe src="./videokiniem3.mp4" allowfullscreen></iframe>
+      <div class="caption">Kĩ Niệm Đáng Nhớ Với Cô 🎃😂</div>
+    </div>
+  </div>
+
+  <!-- Hiệu ứng bay -->
+  <script>
+    const stickers = [
+      'https://cdn-icons-png.flaticon.com/512/833/833472.png',
+      'https://cdn-icons-png.flaticon.com/512/616/616490.png',
+      'https://cdn-icons-png.flaticon.com/512/766/766315.png'
+    ];
+
+    for (let i = 0; i < 30; i++) {
+      const s = document.createElement("div");
+      s.className = "effect";
+      s.style.left = Math.random() * 100 + "vw";
+      s.style.top = Math.random() * 100 + "vh";
+      s.style.backgroundImage = `url(${stickers[Math.floor(Math.random() * stickers.length)]})`;
+      s.style.animationDuration = (Math.random() * 6 + 5) + "s";
+      document.body.appendChild(s);
+    }
+  </script>
+
+  <footer>
+    © 2025 Nhật Ký Tuổi Học Trò – Những thước phim sẽ không bao giờ phai 🎥💞
+  </footer>
+
+</body>
+  <script src="music.js"></script>
+</html>

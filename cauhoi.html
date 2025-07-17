@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>💖 Trắc Nghiệm Tuổi Học Trò</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 30px;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(120deg, #ffe0f0, #fef6ff, #dff3ff);
+      background-size: 300% 300%;
+      animation: gradientMove 10s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      max-width: 800px;
+      background: #fff;
+      margin: auto;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255,192,203,0.5);
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff4f81;
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+    .question {
+      margin-bottom: 30px;
+      background: #fff8fb;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(255, 182, 193, 0.2);
+      transition: 0.3s;
+    }
+
+    .question h3 {
+      color: #444;
+      margin-bottom: 12px;
+    }
+
+    label {
+      display: block;
+      margin: 6px 0;
+      padding: 8px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+      border: 1px solid transparent;
+    }
+
+    label:hover {
+      background-color: #ffe0ec;
+      border: 1px solid #ffb6c1;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    button {
+      background: linear-gradient(to right, #ff82ac, #ffb6c1);
+      color: white;
+      padding: 14px 30px;
+      font-size: 17px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      display: block;
+      margin: 30px auto 10px;
+      box-shadow: 0 0 10px rgba(255,105,135,0.3);
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(to right, #ff5e95, #ffa8c7);
+    }
+
+    #result {
+      text-align: center;
+      font-size: 20px;
+      color: #ff4f81;
+      margin-top: 20px;
+      font-weight: bold;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.5s ease;
+    }
+
+    #result.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+     .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 15px;
+      background: rgba(255, 240, 250, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 6px rgba(255, 105, 180, 0.3);
+    }
+     /* Logo góc trái */
+    .logo {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+      z-index: 10;
+    }
+       .navbar a {
+      padding: 10px 18px;
+      background: linear-gradient(45deg, #ff6ec4, #7873f5);
+      color: white;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+    }
+  </style>
+</head>
+<body>
+       <!-- Logo -->
+  <img src="./logo.jpg" alt="Logo" class="logo">
+
+  <!-- Thanh menu -->
+  <div class="navbar">
+    <a href="trangchu.html">🏠 Trang chủ</a>
+    <a href="anh-dim.html">📷 Ảnh dìm</a>
+    <a href="video.html">🎬 Video</a>
+    <a href="tro-choi.html">🎮 Trò chơi</a>
+    <a href="danhgia.html">⭐ đánh giá </a>
+  </div>
+  <div class="container">
+    <h1>📚 10 Câu Hỏi Ý Nghĩa Về Tuổi Học Trò</h1>
+
+    <form id="quizForm">
+      <div class="question">
+        <h3>1. Điều gì làm bạn nhớ nhất về thời học sinh?</h3>
+        <label><input type="radio" name="q1" value="A"> A. Những giờ kiểm tra đầy áp lực</label>
+        <label><input type="radio" name="q1" value="B"> B. Mỗi lần bị điểm kém</label>
+        <label><input type="radio" name="q1" value="C"> C. Khoảnh khắc bên bạn bè và thầy cô</label>
+        <label><input type="radio" name="q1" value="D"> D. Những lần trốn học</label>
+      </div>
+
+      <div class="question">
+        <h3>2. Món quà lớn nhất tuổi học trò để lại là gì?</h3>
+        <label><input type="radio" name="q2" value="A"> A. Sự trưởng thành</label>
+        <label><input type="radio" name="q2" value="B"> B. Tiền bạc</label>
+        <label><input type="radio" name="q2" value="C"> C. Kỷ luật</label>
+        <label><input type="radio" name="q2" value="D"> D. Danh vọng</label>
+      </div>
+
+      <div class="question">
+        <h3>3. Ai là người ảnh hưởng nhất với bạn thời học sinh?</h3>
+        <label><input type="radio" name="q3" value="A"> A. Bạn thân</label>
+        <label><input type="radio" name="q3" value="B"> B. Giáo viên</label>
+        <label><input type="radio" name="q3" value="C"> C. Bố mẹ</label>
+        <label><input type="radio" name="q3" value="D"> D. Người yêu</label>
+      </div>
+
+      <div class="question">
+        <h3>4. Một bài học bạn học được ở trường là gì?</h3>
+        <label><input type="radio" name="q4" value="A"> A. Học giỏi là tất cả</label>
+        <label><input type="radio" name="q4" value="B"> B. Chơi giỏi hơn học</label>
+        <label><input type="radio" name="q4" value="C"> C. Tình bạn và nỗ lực mới quan trọng</label>
+        <label><input type="radio" name="q4" value="D"> D. Thích là được</label>
+      </div>
+
+      <div class="question">
+        <h3>5. Khoảnh khắc buồn nhất của tuổi học trò là khi:</h3>
+        <label><input type="radio" name="q5" value="A"> A. Chia tay bạn bè, thầy cô</label>
+        <label><input type="radio" name="q5" value="B"> B. Không được nghỉ lễ</label>
+        <label><input type="radio" name="q5" value="C"> C. Hết tiền tiêu vặt</label>
+        <label><input type="radio" name="q5" value="D"> D. Không có bạn gái</label>
+      </div>
+
+      <div class="question">
+        <h3>6. Ký ức nào gợi nhớ tuổi học trò nhất?</h3>
+        <label><input type="radio" name="q6" value="A"> A. Những tiết học nhàm chán</label>
+        <label><input type="radio" name="q6" value="B"> B. Sổ đầu bài</label>
+        <label><input type="radio" name="q6" value="C"> C. Lễ tổng kết và đồng phục trắng</label>
+        <label><input type="radio" name="q6" value="D"> D. Sách giáo khoa</label>
+      </div>
+
+      <div class="question">
+        <h3>7. Nếu quay lại, bạn sẽ làm gì khác?</h3>
+        <label><input type="radio" name="q7" value="A"> A. Cúp học nhiều hơn</label>
+        <label><input type="radio" name="q7" value="B"> B. Tỏ tình sớm hơn</label>
+        <label><input type="radio" name="q7" value="C"> C. Học hành nghiêm túc hơn</label>
+        <label><input type="radio" name="q7" value="D"> D. Ngủ nhiều hơn</label>
+      </div>
+
+      <div class="question">
+        <h3>8. Một từ mô tả tuổi học trò của bạn?</h3>
+        <label><input type="radio" name="q8" value="A"> A. Rực rỡ</label>
+        <label><input type="radio" name="q8" value="B"> B. Mộng mơ</label>
+        <label><input type="radio" name="q8" value="C"> C. Trầm buồn</label>
+        <label><input type="radio" name="q8" value="D"> D. Nổi loạn</label>
+      </div>
+
+      <div class="question">
+        <h3>9. Điều bạn biết ơn nhất trong suốt thời học sinh?</h3>
+        <label><input type="radio" name="q9" value="A"> A. Điểm cao</label>
+        <label><input type="radio" name="q9" value="B"> B. Sự quan tâm của bạn bè, thầy cô</label>
+        <label><input type="radio" name="q9" value="C"> C. Máy lạnh trong lớp</label>
+        <label><input type="radio" name="q9" value="D"> D. Không có bài tập</label>
+      </div>
+
+      <div class="question">
+        <h3>10. Thứ sẽ theo bạn mãi sau khi rời trường:</h3>
+        <label><input type="radio" name="q10" value="A"> A. Học bạ</label>
+        <label><input type="radio" name="q10" value="B"> B. Bảng điểm</label>
+        <label><input type="radio" name="q10" value="C"> C. Những kỷ niệm và tình cảm chân thành</label>
+        <label><input type="radio" name="q10" value="D"> D. Những lần ngủ gật</label>
+      </div>
+
+      <button type="button" onclick="submitQuiz()">✨ Nộp bài</button>
+      <div id="result"></div>
+    </form>
+  </div>
+
+  <script>
+    const correctAnswers = {
+      q1: "ABCD",
+      q2: "ABCD",
+      q3: "ABCD",
+      q4: "ABCD",
+      q5: "ABCD",
+      q6: "ABCD",
+      q7: "ABCD",
+      q8: "ABCD",
+      q9: "ABCD",
+      q10: "ABCD"
+    };
+
+    function submitQuiz() {
+      let score = 0;
+      for (let i = 1; i <= 10; i++) {
+        const q = document.querySelector(`input[name="q${i}"]:checked`);
+        if (q && q.value === correctAnswers[`q${i}`]) {
+          score++;
+        }
+      }
+
+      const result = document.getElementById("result");
+      result.classList.add("show");
+      result.innerText = `🎉 Bạn đúng 10/10 câu! ${
+        score >= 9 ? 'Xuất sắc luôn á! 🏆' :
+        score >= 7 ? 'Rất tốt rồi nha! 👏' :
+        score >= 5 ? 'Tạm ổn, còn nhớ chút xíu 😄' :
+        'Cảm Ơn Bạn Đã Dành Thòi Gian TRả Lời Bạn Tuyệt Lắm  😅'
+      }`;
+    }
+  </script>
+</body>
+  <script src="music.js"></script>
+</html>

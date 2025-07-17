@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>🎮 Khu Trò Chơi Tuổi Học Trò</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Quicksand", sans-serif;
+        text-align: center;
+        overflow: hidden;
+        color: white;
+        background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+        animation: gradientMove 10s infinite alternate;
+        position: relative;
+        min-height: 100vh;
+      }
+
+      @keyframes gradientMove {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+
+      h1 {
+        margin-top: 40px;
+        font-size: 2.2rem;
+        color: #fff;
+        text-shadow: 2px 2px 5px #ff69b4;
+      }
+
+      .game-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 60px;
+        z-index: 2;
+        position: relative;
+      }
+
+      .game-circle {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.1rem;
+        text-decoration: none;
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .game-circle:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
+      }
+
+      .boc-tham {
+        background: radial-gradient(circle, #ff9a9e, #fad0c4);
+      }
+      .ghep-hinh {
+        background: radial-gradient(circle, #a18cd1, #fbc2eb);
+      }
+      .cau-do {
+        background: radial-gradient(circle, #fbc2eb, #a6c1ee);
+      }
+      .to-mau {
+        background: radial-gradient(circle, #fbc2eb, #d22c61);
+      }
+       .coca-ro {
+        background: radial-gradient(circle, #5069b5, #d22c61);
+      }
+      .dang-cap-nhat {
+        background: radial-gradient(circle, #fdcbf1, #e6dee9);
+      }
+
+      footer {
+        position: absolute;
+        bottom: 15px;
+        width: 100%;
+        font-size: 0.9rem;
+        color: #fff5f5;
+        font-style: italic;
+        z-index: 2;
+        text-shadow: 1px 1px 3px #000;
+      }
+
+      /* Hiệu ứng trái tim + sao bay */
+      .effect {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: fly 12s linear infinite;
+        opacity: 0.5;
+        z-index: 0;
+      }
+
+      @keyframes fly {
+        0% {
+          transform: translateY(100vh) translateX(0);
+        }
+        100% {
+          transform: translateY(-120vh) translateX(50px);
+        }
+      }
+      .navbar {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding: 15px;
+        background: rgba(255, 240, 250, 0.8);
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 6px rgba(255, 105, 180, 0.3);
+      }
+      /* Logo góc trái */
+      .logo {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+        z-index: 10;
+      }
+      .navbar a {
+        padding: 10px 18px;
+        background: linear-gradient(45deg, #ff6ec4, #7873f5);
+        color: white;
+        font-weight: bold;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+      }
+      .navbar {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding: 15px;
+        background: rgba(255, 240, 250, 0.8);
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 6px rgba(255, 105, 180, 0.3);
+      }
+      /* Logo góc trái */
+      .logo {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+        z-index: 10;
+      }
+      .navbar a {
+        padding: 10px 18px;
+        background: linear-gradient(45deg, #ff6ec4, #7873f5);
+        color: white;
+        font-weight: bold;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Logo -->
+    <img src="./logo.jpg" alt="Logo" class="logo" />
+
+    <!-- Thanh menu -->
+    <div class="navbar">
+      <a href="trangchu.html">🏠 Trang chủ</a>
+      <a href="anh-dim.html">📷 Ảnh dìm</a>
+      <a href="video.html">🎬 Video</a>
+      <a href="tro-choi.html">🎮 Trò chơi</a>
+      <a href="danhgia.html">⭐ đánh giá </a>
+    </div>
+    <h1>🌟 Khu Trò Chơi Tuổi Học Trò 🌈</h1>
+
+    <div class="game-container">
+      <a href="boctham.html" class="game-circle boc-tham">✨ Bốc Thăm</a>
+      <a href="ghep-hinh.html" class="game-circle ghep-hinh">🧩 Ghép Hình</a>
+      <a href="cauhoi.html" class="game-circle cau-do">🧠 Câu Đố</a>
+      <a href="tomau.html" class="game-circle to-mau">🌅Tô Màu </a>
+      <a href="cocaro.html" class="game-circle coca-ro">Cờ Ca Rô </a>
+       <a href="ddangcapnhat.html" class="game-circle dang-cap-nhat">🆕 Đang cập nhật </a>
+    </div>
+
+    <footer>© 2025 Trò chơi học trò lấp lánh ✨ – Made by Khánh 💕</footer>
+
+    <script>
+      const stickers = [
+        "https://cdn-icons-png.flaticon.com/512/833/833472.png", // trái tim
+        "https://cdn-icons-png.flaticon.com/512/616/616490.png", // ngôi sao
+        "https://cdn-icons-png.flaticon.com/512/766/766315.png", // hoa
+      ];
+      for (let i = 0; i < 40; i++) {
+        const s = document.createElement("div");
+        s.className = "effect";
+        s.style.left = Math.random() * 100 + "vw";
+        s.style.top = Math.random() * 100 + "vh";
+        s.style.backgroundImage = `url(${
+          stickers[Math.floor(Math.random() * stickers.length)]
+        })`;
+        s.style.animationDuration = Math.random() * 6 + 5 + "s";
+        document.body.appendChild(s);
+      }
+    </script>
+  </body>
+  <script src="music.js"></script>
+</html>

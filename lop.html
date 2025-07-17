@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>📚 Thông Tin Lớp Học</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: linear-gradient(120deg, #ffe0f0, #fff0f5);
+      font-family: 'Quicksand', sans-serif;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.4);
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 2s ease-in-out;
+    }
+    h1 {
+      text-align: center;
+      color: #e91e63;
+      font-size: 2.2em;
+      animation: glow 2s infinite alternate;
+      margin-bottom: 20px;
+    }
+    .class-photo {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      margin-top: 10px;
+      border-collapse: collapse;
+    }
+    td {
+      padding: 12px;
+      border-bottom: 1px dashed #e9a6c7;
+    }
+    td:first-child {
+      font-weight: bold;
+      width: 40%;
+      color: #555;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 15px;
+      color: #888;
+    }
+
+    .nav-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .nav-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background: #ff69b4;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .nav-buttons a:hover {
+      transform: scale(1.05);
+      background: #e91e63;
+    }
+
+    /* Slideshow */
+    .slideshow {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .slideshow img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      animation: fadeIn 1s ease;
+    }
+
+    /* Hiệu ứng trái tim bay */
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
+      background-size: cover;
+      animation: floatUp 10s linear infinite;
+      opacity: 0.7;
+      z-index: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff80ab; }
+      to { text-shadow: 0 0 20px #ff4081, 0 0 30px #f06292; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nhạc nền -->
+<audio autoplay loop>
+  <source src="https://www.chosic.com/wp-content/uploads/2021/03/Lilac-chill-background-music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <h1>🌟 Thông Tin Lớp 12CB2 🌟</h1>
+
+  <!-- Ảnh lớp học -->
+  <img src="./kn7.jpg" alt="Ảnh lớp học" class="class-photo">
+
+  <!-- Bảng thông tin -->
+  <table>
+    <tr><td>Tên lớp</td><td>12CB2 – Chuyên Quậy</td></tr>
+    <tr><td>Giáo viên chủ nhiệm</td><td>Thầy Bình </td></tr>
+    <tr><td>Sĩ số</td><td>43 học sinh (20 nam – 22 nữ)</td></tr>
+    <tr><td>Trường học</td><td>THPT Lương Tâm, Huyện Long Mỹ , Tỉnh Hậu Giang</td></tr>
+    <tr><td>Niên khóa</td><td>2021 – 2024</td></tr>
+    <tr><td>Slogan</td><td>“Chúng ta không hoàn hảo, nhưng là một tập thể tuyệt vời!”</td></tr>
+    <tr><td>Thành tích nổi bật</td><td>Đang trong Quá Trình Cập Nhật</td></tr>
+    <tr><td>Hoạt động đáng nhớ</td><td>Trại Xuân 2024, Văn nghệ 20/11</td></tr>
+  </table>
+
+  <!-- Nút điều hướng -->
+  <div class="nav-buttons">
+    <a href="ddangcapnhat.html">📓 Nhật ký lớp</a>
+    <a href="anh-dim.html">📸 Ảnh dìm</a>
+    <a href="video.html">🎬 Video kỷ niệm</a>
+    <a href="trangchu.html">⬅️ Về trang chủ</a>
+  </div>
+
+  <div class="footer">💖 Mãi yêu 12CB2 – Ngôi nhà thứ hai 💖</div>
+</div>
+
+<!-- Hiệu ứng trái tim -->
+<script>
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (6 + Math.random() * 4) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 10000);
+  }
+  setInterval(createHeart, 300);
+
+  // Slideshow ảnh
+  const slides = [
+    "https://i.imgur.com/tzOaFMS.jpg",
+    "https://i.imgur.com/LKcGHrB.jpg",
+    "https://i.imgur.com/GUeEKGb.jpg",
+    "https://i.imgur.com/EVNwMaX.jpg"
+  ];
+  let current = 0;
+  setInterval(() => {
+    current = (current + 1) % slides.length;
+    document.getElementById("slide").src = slides[current];
+  }, 4000);
+</script>
+
+</body>
+</html>

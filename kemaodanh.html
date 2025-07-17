@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bị phát hiện rồi nha! 😆</title>
+  <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle, #ffe6f0, #f0c9ff);
+      font-family: 'Quicksand', sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+    }
+
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      padding: 50px 30px;
+      z-index: 2;
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      font-family: 'Concert One', cursive;
+      font-size: 32px;
+      color: #ff4081;
+      text-shadow: 1px 1px 3px #ffa6c9;
+      animation: bounce 2s infinite;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 20px 0;
+      color: #444;
+    }
+
+    .emoji {
+      font-size: 50px;
+      animation: rotate 4s infinite linear;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      background: linear-gradient(to right, #ff7eb9, #ff4081);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(to right, #ff4081, #ff1493);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
+      background-size: contain;
+      animation: floatUp 10s linear infinite;
+      opacity: 0.7;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.3);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>😜 Oops! Bị phát hiện rồi nha!</h1>
+    <div class="emoji">🕵️‍♂️</div>
+    <p>Hình như bạn <strong>không phải thành viên lớp 12CB2</strong> đâu nhe!</p>
+    <p>Đang tính "giả danh" hả? Hehe... bị bắt quả tang luôn rồi 😆</p>
+    <button onclick="window.location.href='index.html'">Quay lại xác nhận 🔄</button>
+  </div>
+
+  <!-- Trái tim bay -->
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = Math.random() * 100 + 'vh';
+      heart.style.animationDelay = (Math.random() * 5) + 's';
+      heart.style.width = heart.style.height = 15 + Math.random() * 15 + 'px';
+      document.body.appendChild(heart);
+    }
+  </script>
+
+</body>
+</html>

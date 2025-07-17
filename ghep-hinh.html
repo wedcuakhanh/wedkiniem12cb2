@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>🧩 Trò Ghép Hình Kỷ Niệm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      color: #d63384;
+      padding: 30px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 4px #fff;
+    }
+
+    #puzzle-container {
+      width: 300px;
+      height: 300px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      border: 4px solid #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      background-color: #fff;
+      border-radius: 10px;
+    }
+
+    .tile {
+      width: 100px;
+      height: 100px;
+      background-image: url('https://i.imgur.com/xvl0AFA.jpg'); /* ảnh gốc */
+      background-size: 300px 300px;
+      box-sizing: border-box;
+      border: 1px solid #eee;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .tile.dragging {
+      opacity: 0.5;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+      border-radius: 30px;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(45deg, #fbc2eb, #a6c1ee);
+      transform: scale(1.05);
+    }
+
+    #message {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    #full-image {
+      margin-top: 25px;
+      display: none;
+      max-width: 90%;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      border: 5px solid white;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+       .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 15px;
+      background: rgba(255, 240, 250, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 6px rgba(255, 105, 180, 0.3);
+    }
+     /* Logo góc trái */
+    .logo {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+      z-index: 10;
+    }
+       .navbar a {
+      padding: 10px 18px;
+      background: linear-gradient(45deg, #ff6ec4, #7873f5);
+      color: white;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+    }
+  </style>
+</head>
+<body>
+ <!-- Logo -->
+  <img src="./logo.jpg" alt="Logo" class="logo">
+
+  <!-- Thanh menu -->
+  <div class="navbar">
+    <a href="trangchu.html">🏠 Trang chủ</a>
+    <a href="anh-dim.html">📷 Ảnh dìm</a>
+    <a href="video.html">🎬 Video</a>
+    <a href="tro-choi.html">🎮 Trò chơi</a>
+    <a href="danhgia.html">⭐ đánh giá </a>
+  </div>
+
+  <h1>🧩 Ghép Hình Kỷ Niệm</h1>
+
+  <div id="puzzle-container"></div>
+
+  <div class="buttons">
+    <button onclick="shuffleTiles()">🔄 Trộn Lại</button>
+    <button onclick="checkWin()">✅ Hoàn Thành</button>
+  </div>
+
+  <div id="message"></div>
+
+  <img id="full-image" src="./anhkiniem1.jpg" alt="Ảnh đầy đủ">
+
+  <script>
+    const container = document.getElementById("puzzle-container");
+    const message = document.getElementById("message");
+    const fullImage = document.getElementById("full-image");
+
+    let tiles = [];
+    const currentImage = './anhkiniem1.jpg';
+
+    function createTiles() {
+      tiles = [];
+      for (let row = 0; row < 3; row++) {
+        for (let col = 0; col < 3; col++) {
+          const tile = document.createElement("div");
+          tile.classList.add("tile");
+          tile.style.backgroundImage = `url('${currentImage}')`;
+          tile.style.backgroundPosition = `-${col * 100}px -${row * 100}px`;
+          tile.setAttribute("draggable", true);
+          tile.dataset.position = `${row}-${col}`;
+          tiles.push(tile);
+        }
+      }
+    }
+
+    function renderTiles() {
+      container.innerHTML = "";
+      tiles.forEach(tile => {
+        tile.style.backgroundImage = `url('${currentImage}')`;
+        container.appendChild(tile);
+      });
+    }
+
+    function shuffleTiles() {
+      tiles.sort(() => Math.random() - 0.5);
+      renderTiles();
+      message.innerText = "";
+      fullImage.style.display = "none";
+    }
+
+    // Drag & Drop
+    let dragged;
+
+    container.addEventListener("dragstart", (e) => {
+      dragged = e.target;
+      e.target.classList.add("dragging");
+    });
+
+    container.addEventListener("dragend", (e) => {
+      e.target.classList.remove("dragging");
+    });
+
+    container.addEventListener("dragover", (e) => {
+      e.preventDefault();
+    });
+
+    container.addEventListener("drop", (e) => {
+      if (e.target.classList.contains("tile")) {
+        const draggedIndex = tiles.indexOf(dragged);
+        const targetIndex = tiles.indexOf(e.target);
+        [tiles[draggedIndex], tiles[targetIndex]] = [tiles[targetIndex], tiles[draggedIndex]];
+        renderTiles();
+      }
+    });
+
+    function checkWin() {
+      const win = tiles.every((tile, i) => {
+        const row = Math.floor(i / 3);
+        const col = i % 3;
+        return tile.dataset.position === `${row}-${col}`;
+      });
+
+      if (win) {
+        message.innerHTML = "🎉 <b>Chúc mừng bạn!</b> Ghép đúng rồi nha!";
+        message.style.color = "#28a745";
+        fullImage.style.display = "block";
+
+        // hiệu ứng confetti
+        for (let i = 0; i < 30; i++) {
+          const confetti = document.createElement("div");
+          confetti.style.width = "10px";
+          confetti.style.height = "10px";
+          confetti.style.background = `hsl(${Math.random() * 360}, 80%, 70%)`;
+          confetti.style.position = "absolute";
+          confetti.style.left = Math.random() * 100 + "vw";
+          confetti.style.top = "0";
+          confetti.style.opacity = 0.8;
+          confetti.style.borderRadius = "50%";
+          confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+          document.body.appendChild(confetti);
+        }
+
+      } else {
+        message.innerText = "😢 Chưa đúng rồi, thử lại nha!";
+        message.style.color = "#dc3545";
+        fullImage.style.display = "none";
+      }
+    }
+
+    createTiles();
+    shuffleTiles();
+  </script>
+
+</body>
+  <script src="music.js"></script>
+</html>

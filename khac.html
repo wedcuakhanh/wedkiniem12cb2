@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>🌸 Trang Kỷ Niệm</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Quicksand", sans-serif;
+        background: linear-gradient(to right, #fff0f5, #e0f7fa);
+        height: 100vh;
+        position: relative;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 14px 20px;
+        border-radius: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        backdrop-filter: blur(8px);
+      }
+
+      .navbar a {
+        text-decoration: none;
+        color: #ff69b4;
+        background-color: #fff0f5;
+        padding: 10px 18px;
+        border-radius: 25px;
+        font-weight: bold;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        border: 1.5px solid transparent;
+      }
+
+      .navbar a:hover {
+        background-color: #ffe6f0;
+        color: #d63384;
+        border-color: #ffc0cb;
+        transform: scale(1.05);
+      }
+
+      .rectangles {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .rectangle {
+        width: 200px;
+        height: 120px;
+        background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+        border-radius: 30px;
+        box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #fff;
+        font-size: 20px;
+        text-decoration: none;
+        transition: transform 0.3s ease, background 0.3s ease;
+      }
+
+      .rectangle:hover {
+        transform: translateY(-8px) scale(1.08);
+        background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="trangchu.html">🏠 Trang Chủ</a>
+      <a href="anh-dim.html">Ảnh Dìm📸 </a>
+      <a href="video.html">🎬 Video</a>
+      <a href="tro-choi.html">🎮 Trò chơi</a>
+      <a href="danhgia.html">🌟 Đánh Giá</a>
+    </div>
+
+    <div class="rectangles">
+      <a href="nghenhac.html" class="rectangle">Nghe Nhạc ️🎵</a>
+      <a href="ddangcapnhat.html" class="rectangle">Đang Cập Nhật</a>
+      <a href="ddangcapnhat.html" class="rectangle">Đang Cập Nhật</a>
+      <a href="ddangcapnhat.html" class="rectangle">Đang Cập Nhật</a>
+      <a href="ddangcapnhat.html" class="rectangle">Đang Cập Nhật</a>
+    </div>
+  </body>
+</html>

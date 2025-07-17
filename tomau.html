@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>✨ Tô Màu Ký Ức</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom right, #ffe0f0, #e0f7ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #ff69b4;
+      margin-bottom: 10px;
+    }
+    .toolbar {
+      margin: 10px 0;
+    }
+    .color-picker {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .color {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+    canvas {
+      border: 3px solid #ccc;
+      border-radius: 10px;
+      cursor: crosshair;
+    }
+    .buttons button {
+      margin: 10px;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ffb6c1;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .buttons button:hover {
+      background-color: #ff69b4;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎨 Tô Màu Ký Ức</h1>
+  <div class="toolbar">
+    <div class="color-picker" id="colorPicker">
+      <div class="color" style="background-color: #FFB6C1" data-color="#FFB6C1"></div>
+      <div class="color" style="background-color: #87CEFA" data-color="#87CEFA"></div>
+      <div class="color" style="background-color: #98FB98" data-color="#98FB98"></div>
+      <div class="color" style="background-color: #FFD700" data-color="#FFD700"></div>
+      <div class="color" style="background-color: #FFA07A" data-color="#FFA07A"></div>
+      <div class="color" style="background-color: #DDA0DD" data-color="#DDA0DD"></div>
+    </div>
+  </div>
+  <canvas id="canvas" width="800" height="600"></canvas>
+  <div class="buttons">
+    <button onclick="clearCanvas()">🗑 Xóa Hết</button>
+    <button onclick="saveImage()">📀 Lưu Ảnh</button>
+    <button onclick="location.href='index.html'">🔙 Quay Lại</button>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    let painting = false;
+    let currentColor = "#FFB6C1";
+
+    // Load hình nền trắng đen
+    const background = new Image();
+    background.src = "images/tranhchibi.png"; // bạn nhớ đổi tên nếu dùng ảnh khác
+    background.onload = function () {
+      ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    };
+
+    // Vẽ bằng chuột hoặc cảm ứng
+    function startPosition(e) {
+      painting = true;
+      draw(e);
+    }
+
+    function endPosition() {
+      painting = false;
+      ctx.beginPath();
+    }
+
+    function draw(e) {
+      if (!painting) return;
+      e.preventDefault();
+
+      let x, y;
+      if (e.touches) {
+        x = e.touches[0].clientX - canvas.getBoundingClientRect().left;
+        y = e.touches[0].clientY - canvas.getBoundingClientRect().top;
+      } else {
+        x = e.clientX - canvas.getBoundingClientRect().left;
+        y = e.clientY - canvas.getBoundingClientRect().top;
+      }
+
+      ctx.lineWidth = 10;
+      ctx.lineCap = "round";
+      ctx.strokeStyle = currentColor;
+
+      ctx.lineTo(x, y);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+    }
+
+    canvas.addEventListener("mousedown", startPosition);
+    canvas.addEventListener("mouseup", endPosition);
+    canvas.addEventListener("mousemove", draw);
+
+    canvas.addEventListener("touchstart", startPosition);
+    canvas.addEventListener("touchend", endPosition);
+    canvas.addEventListener("touchmove", draw);
+
+    // Chọn màu
+    document.querySelectorAll(".color").forEach((el) => {
+      el.addEventListener("click", () => {
+        currentColor = el.getAttribute("data-color");
+      });
+    });
+
+    // Xóa canvas
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    }
+
+    // Lưu ảnh
+    function saveImage() {
+      const link = document.createElement("a");
+      link.download = "to-mau-ky-uc.png";
+      link.href = canvas.toDataURL();
+      link.click();
+    }
+  </script>
+</body>
+</html>

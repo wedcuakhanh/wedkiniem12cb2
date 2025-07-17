@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>🌸 Nhật Ký Tuổi Học Trò</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom right, #ffe0f0, #ffcce5);
+        font-family: "Quicksand", sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* Logo góc trái */
+      .logo {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+        z-index: 10;
+      }
+
+      /* Thanh menu */
+      .navbar {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding: 15px;
+        background: rgba(255, 240, 250, 0.8);
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 6px rgba(255, 105, 180, 0.3);
+      }
+
+      .navbar a {
+        padding: 10px 18px;
+        background: linear-gradient(45deg, #ff6ec4, #7873f5);
+        color: white;
+        font-weight: bold;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+      }
+
+      .navbar a:hover {
+        transform: scale(1.1);
+        background: linear-gradient(45deg, #ffd700, #ff69b4);
+      }
+
+      header {
+        text-align: center;
+        padding: 20px 10px 10px;
+        color: #d63384;
+        font-size: 2rem;
+        text-shadow: 1px 1px 2px #fff;
+      }
+
+      .counter {
+        text-align: center;
+        color: #ff1493;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+      }
+
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+        max-width: 1100px;
+        margin: auto;
+      }
+
+      .memory {
+        background: #fff0f8;
+        border-radius: 20px;
+        padding: 15px;
+        box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+        text-align: center;
+        transition: transform 0.3s ease;
+        flex: 1 1 280px;
+        max-width: 300px;
+      }
+
+      .memory.large {
+        flex: 1 1 420px;
+        max-width: 450px;
+      }
+
+      .memory:hover {
+        transform: scale(1.03);
+      }
+
+      .memory img {
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .memory p {
+        color: #ff3399;
+        font-weight: bold;
+        font-size: 0.95rem;
+        margin-top: 10px;
+      }
+
+      .memory .message {
+        color: #c2185b;
+        font-style: italic;
+        font-size: 0.9rem;
+        margin-top: 5px;
+      }
+
+      .effect {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: fly 10s linear infinite;
+        opacity: 0.6;
+        z-index: 0;
+      }
+
+      @keyframes fly {
+        0% {
+          transform: translateY(100vh) translateX(0);
+        }
+        100% {
+          transform: translateY(-120vh) translateX(50px);
+        }
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9rem;
+        color: #b4005a;
+        background-color: #fff0f8;
+        margin-top: 30px;
+        font-style: italic;
+      }
+      .side-button {
+        position: fixed;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+        padding: 12px 18px;
+        border-radius: 30px;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        z-index: 100;
+      }
+      .side-button:hover {
+        transform: translateY(-50%) scale(1.08);
+        background: linear-gradient(to bottom, #fbc2eb, #a6c1ee);
+      }
+      .bottom-buttons {
+        position: fixed;
+        bottom: 25px;
+        left: 20px;
+        display: flex;
+        gap: 12px;
+        z-index: 100;
+      }
+
+      .bottom-button {
+        padding: 12px 20px;
+        background: linear-gradient(to right, #ff9a9e, #fad0c4);
+        color: white;
+        font-weight: bold;
+        border-radius: 30px;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: 0.3s ease;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      .bottom-button:hover {
+        transform: scale(1.08);
+        background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      }
+      .social-icons {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        gap: 12px;
+        z-index: 9999;
+      }
+
+      .icon {
+        width: 42px;
+        height: 42px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease, box-shadow 0.3s ease;
+      }
+
+      .icon img {
+        width: 24px;
+        height: 24px;
+      }
+
+      .icon:hover {
+        transform: scale(1.15);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+      }
+
+      .zalo-icon {
+        background: radial-gradient(circle at center, #0190f3, #006edc);
+      }
+
+      .fb-icon {
+        background: radial-gradient(circle at center, #1877f2, #145bd1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Logo -->
+    <img src="./logo.jpg" alt="Logo" class="logo" />
+
+    <!-- Thanh menu -->
+    <div class="navbar">
+      <a href="trangchu.html">🏠 Trang chủ</a>
+      <a href="anh-dim.html">📷 Ảnh dìm</a>
+      <a href="video.html">🎬 Video</a>
+      <a href="tro-choi.html">🎮 Trò chơi</a>
+      <a href="danhgia.html">⭐ đánh giá </a>
+      <a href="khac.html">🎩🎩Khác </a>
+    </div>
+
+    <header>💗 Nhật Ký Tuổi Học Trò</header>
+    <div class="counter" id="daysCounter"></div>
+
+    <div class="gallery">
+      <!-- Các ảnh như cũ -->
+      <div class="memory">
+        <img src="./12cb2a1.jpg" alt="Bạn bè" />
+        <p>Lễ tổng kết cuối cấp 🥹</p>
+        <div class="message">
+          “Tổng kết không phải là lời chia tay, mà là lời chào của một chặng
+          đường mới – nơi mỗi người chúng em sẽ mang theo hành trang là kiến
+          thức, là tình yêu thương từ ngôi trường thân yêu này.”
+        </div>
+      </div>
+
+      <div class="memory large">
+        <img src="./12cb2a2.jpg" alt="Ảnh lớp" />
+        <p>Ảnh tập thể lớp 12CB2 🌟</p>
+        <div class="message">
+          Mỗi người một hướng, nhưng 12CB2 sẽ mãi là một gia đình 💞
+        </div>
+      </div>
+
+      <div class="memory">
+        <img src="./12cb2a3.jpg" alt="Lớp học" />
+        <p>Khoảnh khắc trong lớp 📚</p>
+        <div class="message">
+          "Có những khoảnh khắc tưởng chừng rất bình thường – như một giờ học
+          buồn ngủ, một cái chọc ghẹo lén thầy, hay một lần bị gọi lên bảng run
+          rẩy – nhưng sau này nhớ lại, mới thấy đó là cả bầu trời thanh xuân."
+        </div>
+      </div>
+
+      <div class="memory large">
+        <img src="./12cb2a4.jpg" alt="Đi chơi Đà Lạt" />
+        <p>Cùng Nhau Tham Gia Văn Nghệ 🌸</p>
+        <div class="message">
+          "Từng buổi tập văn nghệ dưới sân trường, mồ hôi nhễ nhại nhưng nụ cười
+          thì rạng rỡ – ấy là khi tình bạn và tinh thần đoàn kết lớn dần lên
+          trong từng điệu nhảy, từng câu hát." 🧣
+        </div>
+      </div>
+
+      <div class="memory">
+        <img src="./anhkiniem1.jpg" alt="Thầy cô" />
+        <p>Ngày chia tay thầy cô</p>
+        <div class="message">
+          “Dù mai đây mỗi đứa mỗi phương, nhưng hình bóng thầy cô – với những
+          bài giảng, nụ cười, ánh mắt quan tâm – sẽ luôn là một phần trong hành
+          trang chúng em mang theo suốt cuộc đời.”🙇‍♀️
+        </div>
+      </div>
+
+      <div class="memory">
+        <img src="./kn1.jpg" alt="Bạn thân" />
+        <p>Kỷ niệm với đám bạn 💕</p>
+        <div class="message">
+          "Chia tay không phải là kết thúc, mà là lúc chúng ta bắt đầu một hành
+          trình mới, mang theo những kỷ niệm không thể quên." 😢❤️
+        </div>
+      </div>
+    </div>
+
+    <!-- Nhạc nền -->
+    <audio id="bgm" autoplay loop muted>
+      <source src="music/gui_thoi_thanh_xuan.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Hiệu ứng trái tim/sao/hoa -->
+    <script>
+      const stickers = [
+        "https://cdn-icons-png.flaticon.com/512/833/833472.png",
+        "https://cdn-icons-png.flaticon.com/512/616/616490.png",
+        "https://cdn-icons-png.flaticon.com/512/766/766315.png",
+      ];
+
+      for (let i = 0; i < 40; i++) {
+        const s = document.createElement("div");
+        s.className = "effect";
+        s.style.left = Math.random() * 100 + "vw";
+        s.style.top = Math.random() * 100 + "vh";
+        s.style.backgroundImage = `url(${
+          stickers[Math.floor(Math.random() * stickers.length)]
+        })`;
+        s.style.animationDuration = Math.random() * 5 + 5 + "s";
+        document.body.appendChild(s);
+      }
+
+      // Đếm số ngày từ kỷ niệm đầu tiên
+      const firstDate = new Date("2023-09-05");
+      const today = new Date();
+      const diffDays = Math.floor((today - firstDate) / (1000 * 60 * 60 * 24));
+      document.getElementById(
+        "daysCounter"
+      ).innerText = `📅 Đã ${diffDays} ngày trôi qua từ kỷ niệm đầu tiên 💞`;
+    </script>
+    <div class="bottom-buttons">
+      <a href="lop.html" class="bottom-button">📘 Thông tin lớp học</a>
+      <a href="demngay.html" class="bottom-button">📅 Đếm số ngày xa nhau</a>
+    </div>
+    <!-- Nút Zalo và Facebook hiện góc phải trên cùng -->
+    <div class="social-icons">
+      <a
+        href="https://zalo.me/0376447206"
+        target="_blank"
+        class="icon zalo-icon"
+        title="Zalo"
+      >
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg"
+          alt="0376447206"
+        />
+      </a>
+      <a
+        href="https://www.facebook.com/profile.php?id=61559617735244"
+        target="_blank"
+        class="icon fb-icon"
+        title="Facebook"
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/145/145802.png"
+          alt="https://www.facebook.com/profile.php?id=61559617735244"
+        />
+      </a>
+    </div>
+
+    <!-- Bản quyền -->
+    <footer>© 2025 Nhật Ký Tuổi Học Trò – Thiết kế bởi Khánh 💕</footer>
+  </body>
+  <script src="music.js"></script>
+</html>

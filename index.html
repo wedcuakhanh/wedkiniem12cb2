@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Xác Nhận Thành Viên 12CB2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: radial-gradient(circle at top, #ffe6fa 10%, #d0c7ff 90%);
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 30px;
+      padding: 60px 40px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+      animation: zoomIn 1s ease-out;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 32px;
+      color: #ff4d94;
+      text-shadow: 0 0 10px #ffb3d9, 0 0 20px #ffccf2;
+      margin-bottom: 40px;
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    button {
+      font-size: 18px;
+      font-weight: bold;
+      padding: 15px 40px;
+      margin: 15px;
+      border: none;
+      border-radius: 50px;
+      color: white;
+      background: linear-gradient(145deg, #ff66cc, #ff4da6);
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    button::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 60%);
+      top: -75%;
+      left: -75%;
+      animation: pulse 3s infinite;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 105, 180, 0.9);
+    }
+
+    /* Trái tim bay lung linh */
+    .heart {
+      position: absolute;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
+      background-size: contain;
+      width: 24px;
+      height: 24px;
+      opacity: 0.8;
+      animation: floatUp 8s linear infinite;
+      filter: drop-shadow(0 0 6px #ffb6c1);
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    /* Hiệu ứng glow */
+    @keyframes glow {
+      0%, 100% { text-shadow: 0 0 10px #ffccf2, 0 0 20px #ff99cc; }
+      50% { text-shadow: 0 0 20px #ff66cc, 0 0 40px #ff4da6; }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Bokeh background */
+    .bokeh {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 192, 203, 0.3);
+      filter: blur(20px);
+      animation: bokehMove 20s infinite linear;
+    }
+
+    @keyframes bokehMove {
+      0% {
+        transform: translateY(100vh);
+      }
+      100% {
+        transform: translateY(-100vh);
+      }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Bạn có phải là thành viên lớp <br><span style="color:#ff69b4;">12CB2</span> không?</h1>
+    <button onclick="window.location.href='login.html'">Có 💖</button>
+    <button onclick="window.location.href='kemaodanh.html'">Không 😝</button>
+  </div>
+
+  <!-- Trái tim -->
+  <script>
+    for (let i = 0; i < 25; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = Math.random() * 100 + 'vh';
+      heart.style.animationDelay = (Math.random() * 5) + 's';
+      heart.style.width = heart.style.height = 20 + Math.random() * 20 + 'px';
+      document.body.appendChild(heart);
+    }
+
+    for (let i = 0; i < 20; i++) {
+      const bokeh = document.createElement('div');
+      bokeh.classList.add('bokeh');
+      bokeh.style.width = bokeh.style.height = 50 + Math.random() * 100 + 'px';
+      bokeh.style.left = Math.random() * 100 + 'vw';
+      bokeh.style.animationDelay = Math.random() * 10 + 's';
+      document.body.appendChild(bokeh);
+    }
+  </script>
+
+  <!-- Nhạc nền -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2023/03/15/audio_58b2aa5d57.mp3" type="audio/mpeg">
+  </audio>
+
+</body>
+</html>

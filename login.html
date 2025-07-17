@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>🌸 Đăng Nhập Ký Ức Học Trò</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(120deg, #ffd6e8, #ffe0f0, #ffd1dc);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      color: #e91e63;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px #fff;
+    }
+
+    .login-box {
+      background: rgba(255, 240, 245, 0.9);
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(255, 105, 180, 0.3);
+      width: 280px;
+      text-align: center;
+      animation: popIn 1s ease;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 2px solid #ff99cc;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    .login-box input:focus {
+      border-color: #ff66b2;
+      box-shadow: 0 0 8px #ffcce0;
+      outline: none;
+    }
+
+    .login-box button {
+      background: linear-gradient(to right, #ff66b2, #ff1493);
+      border: none;
+      padding: 10px 25px;
+      color: white;
+      font-size: 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: 0.3s;
+    }
+
+    .login-box button:hover {
+      background: linear-gradient(to right, #ff1493, #ff66b2);
+      box-shadow: 0 0 12px #ff99cc;
+    }
+
+    .heart {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
+      background-size: cover;
+      animation: float 10s linear infinite;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) translateX(0);
+      }
+      100% {
+        transform: translateY(-100vh) translateX(30px);
+      }
+    }
+
+    #toggleMusic {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff66b2;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-size: 0.9rem;
+      border-radius: 20px;
+      box-shadow: 0 0 10px #ffcce5;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌸 Đăng Nhập Ký Ức Học Trò</h1>
+    <div class="login-box">
+      <input type="text" id="username" placeholder="👧 Tên bạn">
+      <input type="text" id="class" placeholder="🏫 Tên lớp">
+      <input type="password" id="password" placeholder="🔐 Mật khẩu">
+      <button onclick="checkLogin()">Đăng Nhập</button>
+    </div>
+  </div>
+
+  <audio id="bgm" autoplay loop muted>
+    <source src="./nhac.mp3.mp4" type="audio/mpeg">
+  </audio>
+
+  <button id="toggleMusic">🔊 Bật nhạc</button>
+
+  <script>
+    // Trái tim bay
+    for (let i = 0; i < 25; i++) {
+      let heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 4 + 6) + "s";
+      document.body.appendChild(heart);
+    }
+
+    // Bật/tắt nhạc
+    const audio = document.getElementById('bgm');
+    const btn = document.getElementById('toggleMusic');
+
+    window.addEventListener('load', function () {
+      audio.muted = false;
+      audio.play().then(() => {
+        btn.textContent = "🔇 Tắt nhạc";
+      }).catch(() => {
+        btn.textContent = "🔊 Bật nhạc";
+      });
+    });
+
+    btn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        btn.textContent = "🔇 Tắt nhạc";
+      } else {
+        audio.pause();
+        btn.textContent = "🔊 Bật nhạc";
+      }
+    });
+
+    // Kiểm tra đăng nhập
+    function checkLogin() {
+      const password = document.getElementById("password").value;
+      if (password === "123456") {
+        window.location.href = "trangchu.html";
+      } else {
+        alert("❌ Sai mật khẩu rồi bạn ơi 😢");
+      }
+    }
+  </script>
+</body>
+</html>

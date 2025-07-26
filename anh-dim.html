@@ -2,218 +2,661 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>🤣 Ảnh Dìm Huyền Thoại</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <title>💗 Lớp 12CB2 – Những ngày không quên 💗</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to top left, #ffe6f0, #ffcce6);
+      background-color: #fff0f5;
       font-family: 'Quicksand', sans-serif;
-      overflow-x: hidden;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      padding: 15px;
-      background: rgba(255, 240, 250, 0.8);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 6px rgba(255, 105, 180, 0.3);
-    }
-
-    .navbar a {
-      padding: 10px 18px;
-      background: linear-gradient(45deg, #ff6ec4, #7873f5);
-      color: white;
-      font-weight: bold;
-      border-radius: 30px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
-    }
-
-    .navbar a:hover {
-      transform: scale(1.1);
-      background: linear-gradient(45deg, #ffd700, #ff69b4);
+      margin: 0;
+      padding: 20px;
     }
 
     header {
       text-align: center;
-      padding: 20px;
-      color: #d63384;
-      font-size: 2rem;
-      text-shadow: 1px 1px 2px #fff;
+      margin-bottom: 20px;
     }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 30px;
-      max-width: 1000px;
-      margin: auto;
+    .tieude {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 4px double #ff69b4;
+      border-radius: 15px;
+      font-size: 26px;
+      font-weight: bold;
+      color: #c71585;
+      background-color: #fff0f5;
+      box-shadow: 0 0 15px #ffb6c1;
     }
 
-    .img-box {
-      background: #fff0f8;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
-      transition: transform 0.3s ease;
+    .menu-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
     }
 
-    .img-box:hover {
+    .menu-top button {
+      background-color: #ff69b4;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 25px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff69b4;
+      transition: 0.3s ease;
+    }
+
+    .menu-top button:hover {
+      background-color: #ff1493;
+      box-shadow: 0 0 20px #ff69b4;
       transform: scale(1.05);
     }
 
-    .img-box img {
-      width: 100%;
-      display: block;
+    .khung-anh {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
     }
 
-    .caption {
-      text-align: center;
+    .anh {
+      border: 6px solid #ffb6c1;
+      border-radius: 15px;
       padding: 10px;
-      color: #e91e63;
-      font-style: italic;
-      font-size: 0.9rem;
-    }
-
-    .effect {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      animation: fly 12s linear infinite;
-      opacity: 0.6;
-      z-index: 0;
-    }
-
-    @keyframes fly {
-      0% { transform: translateY(100vh) translateX(0); }
-      100% { transform: translateY(-120vh) translateX(50px); }
-    }
-
-    footer {
+      background-color: white;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       text-align: center;
-      padding: 15px;
-      font-size: 0.85rem;
-      color: #b4005a;
-      background-color: #fff0f8;
-      margin-top: 30px;
-      font-style: italic;
-    }
-    /* Logo góc trái */
-    .logo {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
-      z-index: 10;
-    }
-     /* Logo góc trái */
-    .logo {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
-      z-index: 10;
+      position: relative;
     }
 
-    /* Thanh menu */
-    .navbar {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      padding: 15px;
-      background: rgba(255, 240, 250, 0.8);
-      position: sticky;
-      top: 0;
-      z-index: 5;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 6px rgba(255, 105, 180, 0.3);
+    .anh img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
     }
 
+   .btn-group {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+.btn-group button {
+  flex: 1;
+  text-align: center;
+  padding: 8px 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ff69b4;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 8px #ffb6c1;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+
+    .btn-group button:hover {
+      background-color: #ff1493;
+      transform: scale(1.05);
+    }
+
+    .heart-btn {
+      background-color: #fff;
+      color: #ff69b4;
+      font-size: 18px;
+      border: 2px solid #ff69b4;
+      transition: 0.3s;
+    }
+
+    .heart-btn.liked {
+      background-color: #ff69b4;
+      color: white;
+    }
+
+    audio {
+      display: none;
+    }
   </style>
 </head>
 <body>
 
-    <img src="./logo.jpg" alt="Logo" class="logo">
-  <!-- Menu -->
-  <div class="navbar">
-    <a href="trangchu.html">🏠 Trang chủ</a>
-    <a href="anh-dim.html">📷 Ảnh dìm</a>
-    <a href="video.html">🎬 Video</a>
-    <a href="tro-choi.html">🎮 Trò chơi</a>
-    <a href="danhgia.html">⭐ đánh giá </a>
+  <div class="menu-top">
+    <button onclick="window.location.href='trangchu.html'">🏠 Trang chủ</button>
+    <button onclick="document.getElementById('nhac').play()">🎵 Phát nhạc</button>
   </div>
 
-  <header>📷 Ảnh Dìm Huyền Thoại của Lớp 😆</header>
+  <header>
+    <div class="tieude">💗 Lớp 12CB2 – Những ngày không quên 💗</div>
+  </header>
 
-  <div class="gallery">
-    <div class="img-box">
-      <img src="./ad1.jpg" alt="Dìm 1">
-      <div class="caption">Lúc đang ngủ mà bị chụp lén 😴📸</div>
+  <div class="khung-anh">
+    <!-- 1 ảnh mẫu (nhân lên tùy bạn muốn) -->
+    <div class="anh">
+      <img src="a1.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
     </div>
-    <div class="img-box">
-      <img src="./ad2.jpg" alt="Dìm 2">
-      <div class="caption">Khi đang ăn mà bị gọi trả bài 🍗📚</div>
+    <div class="anh">
+      <img src="a2.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
     </div>
-    <div class="img-box">
-      <img src="./ad3.jpg" alt="Dìm 3">
-      <div class="caption">Cười sặc nước vì trò của lớp trưởng 🤣</div>
+        <div class="anh">
+      <img src="a3.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
     </div>
-    <div class="img-box">
-      <img src="./ad4.jpg" alt="Dìm 4">
-      <div class="caption">Bị troll nhưng vẫn ngầu 😎</div>
+        <div class="anh">
+      <img src="a4.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
     </div>
-    <div class="img-box">
-      <img src="./ad4.jpg" alt="Dìm 4">
-      <div class="caption">Bị troll nhưng vẫn ngầu 😎</div>
+        <div class="anh">
+      <img src="a5.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
     </div>
-    <div class="img-box">
-      <img src="./ad4.jpg" alt="Dìm 4">
-      <div class="caption">Bị troll nhưng vẫn ngầu 😎</div>
+        <div class="anh">
+      <img src="a6.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
     </div>
-    <!-- Thêm ảnh dìm mới ở đây -->
+            <div class="anh">
+      <img src="a7.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+            <div class="anh">
+      <img src="a8.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+            <div class="anh">
+      <img src="a9.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+            <div class="anh">
+      <img src="a10.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+            <div class="anh">
+      <img src="a11.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+            <div class="anh">
+      <img src="a12.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+      <div class="anh">
+      <img src="a13.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+
+      <div class="anh">
+      <img src="a14.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+
+      <div class="anh">
+      <img src="a15.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+
+      <div class="anh">
+      <img src="a16.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+
+      <div class="anh">
+      <img src="a17.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+
+      <div class="anh">
+      <img src="a18.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+
+  <div class="anh">
+      <img src="a19.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+
+      <div class="anh">
+      <img src="a20.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+
+      <div class="anh">
+      <img src="a21.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+
+      <div class="anh">
+      <img src="a22.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+
+  <div class="anh">
+      <img src="a23.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+
+      <div class="anh">
+      <img src="a24.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+    <div class="anh">
+      <img src="a25.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+    <div class="anh">
+      <img src="a26.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+    <div class="anh">
+      <img src="a27.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+    <div class="anh">
+      <img src="a28.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+    <div class="anh">
+      <img src="a29.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+    <div class="anh">
+      <img src="a30.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+ <div class="anh">
+      <img src="a31.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+ <div class="anh">
+      <img src="a32.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+
+     <div class="anh">
+      <img src="a33.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+
+     <div class="anh">
+      <img src="a34.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+
+     <div class="anh">
+      <img src="a35.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+
+     <div class="anh">
+      <img src="a36.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+
+     <div class="anh">
+      <img src="a37.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+
+     <div class="anh">
+      <img src="a38.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+ <div class="anh">
+      <img src="a39.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+ <div class="anh">
+      <img src="a40.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+    <div class="anh">
+      <img src="a41.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+<div class="anh">
+      <img src="a42.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+<div class="anh">
+      <img src="a43.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+<div class="anh">
+      <img src="a44.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+<div class="anh">
+      <img src="a45.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+<div class="anh">
+      <img src="a46.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+<div class="anh">
+      <img src="a47.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+<div class="anh">
+      <img src="a48.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+<div class="anh">
+      <img src="a49.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+<div class="anh">
+      <img src="a50.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+<div class="anh">
+      <img src="a51.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+    <div class="anh">
+      <img src="a52.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+    <div class="anh">
+      <img src="a53.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+    <div class="anh">
+      <img src="a54.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+<div class="anh">
+      <img src="a55.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+    <div class="anh">
+      <img src="a56.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+    <div class="anh">
+      <img src="a57.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+    <div class="anh">
+      <img src="a58.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+    <div class="anh">
+      <img src="a59.jpg" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+        <button class="heart-btn" onclick="toggleHeart(this)">💖 Yêu thích</button>
+        <button onclick="saveImage(this)">💾 Lưu ảnh</button>
+        <button onclick="alert('Chia sẻ thành công!')">🔗 Chia sẻ</button>
+      </div>
+    </div>
+<div class="anh">
+      <img src="Updating in Progress.png" alt="Ảnh kỷ niệm">
+      <div class="btn-group">
+      </div>
+    </div>
+
+
+    <!-- thêm ảnh khác tại đây (copy block trên và thay đường link ảnh) -->
+
   </div>
 
-  <!-- Hiệu ứng bay -->
+  <audio id="nhac" controls loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
-    const stickers = [
-      'https://cdn-icons-png.flaticon.com/512/833/833472.png',
-      'https://cdn-icons-png.flaticon.com/512/616/616490.png',
-      'https://cdn-icons-png.flaticon.com/512/766/766315.png'
-    ];
+    function toggleHeart(btn) {
+      btn.classList.toggle('liked');
+      if (btn.classList.contains('liked')) {
+        btn.textContent = '💘 Đã yêu thích';
+      } else {
+        btn.textContent = '💖 Yêu thích';
+      }
+    }
 
-    for (let i = 0; i < 30; i++) {
-      const s = document.createElement("div");
-      s.className = "effect";
-      s.style.left = Math.random() * 100 + "vw";
-      s.style.top = Math.random() * 100 + "vh";
-      s.style.backgroundImage = `url(${stickers[Math.floor(Math.random() * stickers.length)]})`;
-      s.style.animationDuration = (Math.random() * 6 + 5) + "s";
-      document.body.appendChild(s);
+    function saveImage(button) {
+      const img = button.closest(".anh").querySelector("img");
+      const link = document.createElement("a");
+      link.href = img.src;
+      link.download = "ky-niem-12CB2.jpg";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
   </script>
-<script src="music.js"></script>
-  <footer>
-    © 2025 Nhật Ký Tuổi Học Trò – Những khoảnh khắc troll không thể nào quên 🤪
-  </footer>
 
 </body>
 </html>
